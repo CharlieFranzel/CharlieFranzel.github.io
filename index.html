@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" src="favicon.ico">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <title style="color: blueviolet;">Charlie Franzel</title>
+    <script>
+        function.changeBackgroundColor() {
+            const colors = ['#ff9999', '#99ff99', '#9999ff', '#ffff99'];
+			    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+			    document.body.style.backgroundColor = randomColor;
+        }
+        windows.onload = function() {
+            changeBackgroundColor;
+        }
+    </script>
 </head>
 <body bgcolor="#000000">
-    <style>
-        .content {
-    max-width: 500px;
-    margin: auto;
-}
 body {
     font-family: Arial, sans-serif;
     color: #c5c6c7;
 }
-
     </style>
     <div class="content">
     <h1>Charlie Franzel</h1>
     <h2>Online Portfolio</h2>
 <br>
-    <p align="center" style="color:#c5c6c771;font-family: 'Arial';"><em>This is an in progress project.</em></p>
-    <p style="color:#c5c6c7;font-family: 'Arial';" align="center">My name is Charlie Franzel. I am a student currenty studying computer science with an emphasis on networking and cyber security. I am interested in working with computers on both the hardware and software end. In addition to computer science I also have an interest in sales and business.</p>
+    <p align="center"><em>This is an in progress project.</em></p>
+    <p align="center">My name is Charlie Franzel. I am a student currenty studying computer science with an emphasis on networking and cyber security. I am interested in working with computers on both the hardware and software end. In addition to computer science I also have an interest in sales and business.</p>
     <h4>Experience</h4>
     <ul>
         <li>Sales Advisor (Best Buy)</li>
         <li>Network Engineering Intern (Advanced Network Managment)</li>
     </ul>
     <br>
+    ```html```
     <h4>Education</h4>
     <ul>
         <li>Chatfield Senior Highschool</li>
@@ -42,12 +45,15 @@ body {
         <li>CompTIA IT+</li>
         <li>Testout PC Pro</li>
     </ul>
-    <p style="color: #c5c6c7;font-family: Arial, Helvetica, sans-serif;"> Email: charlie@charliefranzel.com</p>
+     Email: charlie@charliefranzel.com</p>
     <a style="color: #45a29e;font-family: Arial, Helvetica, sans-serif;" href="https://www.linkedin.com/in/charlie-franzel-a0a450272/">My LinkedIn</a>
     <div>
         <img src="itf.png" width="200">
     </div>
     <style>
+            .content {
+        max-width: 500px;
+        margin: auto;
         ul {
             margin: 0;
             color: #45a29e;
@@ -73,6 +79,10 @@ body {
         h4 {
             color: #45a29e;
             margin: 0;
+            font-family: 'Arial';
+        }
+        p {color: #c5c6c7;
+           font-family: Arial, Helvetica, sans-serif;
         }
     </style>
 </html>
