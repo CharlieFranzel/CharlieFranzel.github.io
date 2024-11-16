@@ -7,134 +7,126 @@ body {
     background-color: rgb(27, 27, 27);
 }
 
+/* Header */
 header {
     background-color: #101010;
     color: #FFFFFF;
-    padding: 10px;
+    padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     flex-wrap: wrap;
 }
 
-.topbutton, .topbuttonclicked {
+.topbutton {
     color: #F0E2C5;
     background: transparent;
     border: 2px solid transparent;
-    font-size: 1rem;
-    padding: 10px 20px;
+    font-size: 1.2rem; /* Larger font size for buttons */
+    padding: 12px 25px; /* Increased padding for better size */
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.topbutton:hover, .topbuttonclicked {
+.topbutton:hover {
     border-color: #F0E2C5;
+}
+
+/* Main Content */
+main.content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 5%;
+    flex-wrap: wrap;
+}
+
+/* Text Content */
+.text-content {
+    flex: 1;
+    min-width: 300px;
+    max-width: 50%;
+    text-align: left;
 }
 
 h1 {
     color: rgb(252, 240, 207);
-    margin: 0 0 10px;
-    font-size: 2.5em; /* Make h1 responsive */
+    font-size: 4em; /* Increased font size for header */
+    margin: 0 0 15px;
 }
 
 h2 {
     color: white;
-    margin: 10px 0;
-    font-size: 1.8em; /* Adjust h2 size */
+    font-size: 2.2em;
+    margin: 15px 0;
 }
 
 p {
+    font-size: 1.3em; /* Slightly larger paragraph text */
+    line-height: 1.8;
     margin: 0 0 20px;
-    max-width: 600px;
-    line-height: 22px;
-    font-size: 1.1em; /* Adjust paragraph font size */
 }
 
-/* Content Layout */
-main.content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-    gap: 20px;
-    flex-wrap: wrap; /* For small screens */
-}
-
-.text-content {
-    flex: 1;
-    max-width: 60%; /* Text area */
-}
-
+/* Image Content */
 .image-content {
     flex: 1;
-    text-align: right; /* Align image to the right */
+    max-width: 45%; /* Reduced maximum size */
+    display: flex;
+    justify-content: center;
 }
 
 .profile-image {
-    max-width: 100%;
+    max-width: 70%; /* Smaller size for the image */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.contact {
-    font-size: 5em;
-    color: #F0E2C5;
-    font-family: Raleway;
-    font-weight: 500;
-}
-
-/* Social Media Icons */
+/* Social Icons */
 .icon-container {
     display: flex;
-    justify-content: center;
-    gap: 20px; /* Space between the icons */
+    gap: 15px;
     margin-top: 20px;
 }
 
 .social {
-    width: 50px; /* Default icon size */
-    height: auto;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
-    transition: transform 0.2s ease; /* Adds hover effect */
+    transition: transform 0.2s ease;
 }
 
 .social:hover {
-    transform: scale(1.1); /* Slightly enlarge icon on hover */
+    transform: scale(1.1);
 }
 
-/* Responsive Design for social icons */
+/* Responsive Design */
 @media (max-width: 768px) {
     main.content {
         flex-direction: column;
         align-items: center;
-        text-align: center; /* Center everything for smaller screens */
     }
 
-    .text-content {
-        max-width: 100%; /* Expand text content */
-    }
-
+    .text-content,
     .image-content {
         max-width: 100%;
-        text-align: center;
+    }
+
+    h1 {
+        font-size: 3.5em; /* Adjusted for smaller screens */
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 1.2em;
     }
 
     .profile-image {
-        max-width: 70%; /* Reduce image size on smaller screens */
-    }
-
-    /* Stack social icons vertically on smaller screens */
-    .icon-container {
-        flex-direction: row;
-        
-    }
-
-    .social {
-        width: 40px; /* Smaller icons for mobile */
-        height: 40px;
+        max-width: 90%; /* Smaller size for small screens */
     }
 }
-
