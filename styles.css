@@ -4,6 +4,7 @@ body {
     padding: 0;
     font-family: 'Raleway', sans-serif;
     color: #bebebe;
+    background-color: rgb(27, 27, 27);
 }
 
 header {
@@ -35,16 +36,20 @@ header {
 h1 {
     color: rgb(252, 240, 207);
     margin: 0 0 10px;
+    font-size: 2.5em; /* Make h1 responsive */
 }
 
 h2 {
     color: white;
     margin: 10px 0;
+    font-size: 1.8em; /* Adjust h2 size */
 }
 
 p {
     margin: 0 0 20px;
     max-width: 600px;
+    line-height: 22px;
+    font-size: 1.1em; /* Adjust paragraph font size */
 }
 
 /* Content Layout */
@@ -73,16 +78,34 @@ main.content {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.badge-image {
-    width: 25% ;    
-    height: auto;
-    justify-content: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+
+.contact {
+    font-size: 5em;
+    color: #F0E2C5;
+    font-family: Raleway;
+    font-weight: 500;
 }
 
-/* Responsive Design */
+/* Social Media Icons */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between the icons */
+    margin-top: 20px;
+}
+
+.social {
+    width: 50px; /* Default icon size */
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease; /* Adds hover effect */
+}
+
+.social:hover {
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
+/* Responsive Design for social icons */
 @media (max-width: 768px) {
     main.content {
         flex-direction: column;
@@ -102,4 +125,15 @@ main.content {
     .profile-image {
         max-width: 70%; /* Reduce image size on smaller screens */
     }
+
+    /* Stack social icons vertically on smaller screens */
+    .icon-container {
+        flex-direction: column;
+    }
+
+    .social {
+        width: 40px; /* Smaller icons for mobile */
+        height: 40px;
+    }
 }
+
