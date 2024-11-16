@@ -128,7 +128,8 @@ main.content {
 
     /* Stack social icons vertically on smaller screens */
     .icon-container {
-        flex-direction: column;
+        flex-direction: row;
+        
     }
 
     .social {
