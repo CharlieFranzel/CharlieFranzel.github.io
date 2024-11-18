@@ -12,6 +12,8 @@
         <a href="index.html"><button class="topbutton">About Me</button></a>
         <a href="resume/index.html"><button class="topbutton">Resume</button></a>
         <a href="/contact/"><button class="topbutton">Contact</button></a>
+        <button class="topbutton" onclick="contactredirect()">Contact</button>
+
     </header>
     <main class="content">
         <div class="text-content">
@@ -42,5 +44,16 @@
         </div>
     </main>
     <script src="/scripts.js"></script>
+    <script>
+        function showAlert() {
+            alert("Button was clicked!");
+        }
+        function galleryredirect() {
+            window.location.href = '/gallery/index.html';
+        }
+        function contactredirect(){
+            window.location.href = '/contact/index.html';
+        }
+    </script>
 </body>
 </html>
