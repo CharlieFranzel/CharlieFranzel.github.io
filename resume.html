@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charlie Franzel</title>
+    <title>Charlie Franzel - Resume</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="/styles.css">
     <style>
@@ -13,9 +13,6 @@
             font-family: 'Raleway', sans-serif;
             color: white;
         }
-
-
-
         h1 {
             text-align: center;
             margin-top: 20px;
@@ -23,53 +20,51 @@
         h2 {
             color: rgb(252, 240, 207);        
         }
-
         .content {
             max-width: 900px;
             margin: auto;
             padding: 20px;
         }
-
-        .badge-image {
-            display: block;
-            max-width: 150px;
-            margin: 20px auto;
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
         }
-
+        .badge-image {
+            max-width: 150px;
+        }
         .resume-section {
             margin: 20px 0;
         }
-
         .resume-section h2 {
             font-size: 1.8em;
             margin-bottom: 10px;
             border-bottom: 2px solid rgb(80, 80, 80);
             padding-bottom: 5px;
         }
-
         .resume-section p, .resume-section ul {
             font-size: 1.1em;
             line-height: 1.6;
         }
-
         .resume-section ul {
             list-style-type: square;
             padding-left: 20px;
         }
-
-
         @media (max-width: 768px) {
             h1 {
                 font-size: 2em;
             }
-
             .topbutton {
                 padding: 8px 15px;
                 font-size: 0.9em;
             }
-
             .content {
                 padding: 15px;
+            }
+            .badge-container {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -80,39 +75,46 @@
         <a href="resume.html"><button class="topbutton">Resume</button></a>
         <a href="contact.html"><button class="topbutton">Contact</button></a>
     </header>
-
     <main>
-        <h1 style="size: 4em;">Resume</h1>
+        <h1>Resume</h1>
         <div class="content">
-
             <div class="resume-section">
                 <h2>Summary</h2>
-                <p>I am a motivated individual with a strong interest in cybersecurity, networking, IT, sales, and business. Pursuing certifications and internships, I aim to contribute innovative solutions aligning IT advancements with business goals.</p>
+                <p>Motivated individual with a strong interest in cybersecurity, networking, IT, sales, and business. Pursuing industry certifications and internships to contribute innovative solutions aligning IT advancements with business goals.</p>
             </div>
-
             <div class="resume-section">
                 <h2>Skills & Achievements</h2>
                 <ul>
                     <li>CompTIA IT Fundamentals+ Certification</li>
-                    <li>Business and professionalism</li>
-                    <li>Computer maintenance/repair</li>
-                    <li>Sales/customer service</li>
-                    <li>DECA/FBLA Awards</li>
+                    <li>CompTIA A+ Certification</li>
+                    <li>Cybersecurity and Networking Knowledge</li>
+                    <li>Business and Professionalism</li>
+                    <li>Computer Maintenance and Repair</li>
+                    <li>Sales and Customer Service</li>
+                    <li>DECA/FBLA District and State Awards</li>
                 </ul>
             </div>
-
             <div class="resume-section">
                 <h2>Professional Experience</h2>
                 <h3>Network Engineer Intern - Advanced Network Management (ANM)</h3>
                 <p>Collaborated on critical projects, contributing to documentation and network troubleshooting to ensure optimal performance and security.</p>
-
-                <h3>Sales Advisor - BestBuy</h3>
-                <p>Specialized in computer sales while excelling in other departments, consistently achieving top revenue metrics and delivering tailored solutions to customers.</p>
+                <h3>Sales Advisor - BestBuy (Littleton, Colorado)</h3>
+                <p>Specialized in computer sales while excelling in other departments, consistently achieving top revenue per hour metrics and delivering tailored solutions to customers.</p>
+            </div>
+            <div class="resume-section">
+                <h2>Education</h2>
+                <ul>
+                    <li>Cybersecurity/Computer Science Student - Chatfield Senior High</li>
+                    <li>Selected for admission into CTE school</li>
+                    <li>Curriculum includes security, networking, AI, and programming</li>
+                    <li>Includes college classes through Arapahoe Community College</li>
+                </ul>
+            </div>
+            <div class="badge-container">
+                <img src="/photos/itf.png" alt="CompTIA ITF+ Badge" class="badge">
+                <img src="/photos/aplus.png" alt="CompTIA A+ Badge" class="badge">
             </div>
         </div>
-        <img src="/photos/itf.png" alt="ITF+ Badge" class="badge-image">
-
     </main>
-
 </body>
 </html>

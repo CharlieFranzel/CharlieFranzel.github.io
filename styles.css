@@ -83,6 +83,10 @@ p {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+.badge {
+    max-width: 25%;
+    width: 14em;
+}
 
 /* Social Icons */
 .icon-container {
@@ -129,4 +133,5 @@ p {
     .profile-image {
         max-width: 90%; /* Smaller size for small screens */
     }
+    
 }
