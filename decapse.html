@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Learn - Employee Training Platform for Nonprofits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-blue: #1535C8;
+            --light-blue: #67DDDA;
+            --white: #ffffff;
+            --light-gray: #f5f7fa;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Albert Sans', sans-serif;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+        
+        .logo span {
+            color: var(--light-blue);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--dark-blue);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(21, 53, 200, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, rgba(21, 53, 200, 0.05), rgba(103, 221, 218, 0.05));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(21, 53, 200, 0.1), rgba(103, 221, 218, 0.1));
+            top: -300px;
+            right: -200px;
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(21, 53, 200, 0.1), rgba(103, 221, 218, 0.1));
+            bottom: -200px;
+            left: -100px;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+            line-height: 1.2;
+        }
+        
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--medium-gray);
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--medium-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Challenges Section */
+        .challenges {
+            background-color: var(--light-gray);
+        }
+        
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .challenge-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .challenge-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .challenge-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .challenge-card p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--medium-gray);
+        }
+        
+        /* Solution Section */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .solution-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .solution-features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon i {
+            color: white;
+            font-size: 24px;
+        }
+        
+        .feature-text h3 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+        
+        .feature-text p {
+            color: var(--medium-gray);
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            background-color: var(--light-gray);
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 50px;
+        }
+        
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--dark-blue), var(--light-blue));
+            z-index: 1;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+        
+        .step p {
+            color: var(--medium-gray);
+            padding: 0 10px;
+        }
+        
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--light-blue);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--dark-blue);
+            position: relative;
+        }
+        
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .pricing-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+        
+        .price span {
+            font-size: 16px;
+            color: var(--medium-gray);
+            font-weight: 400;
+        }
+        
+        .price-note {
+            font-size: 14px;
+            color: var(--medium-gray);
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            color: var(--medium-gray);
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light-gray);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--medium-gray);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .author-info h4 {
+            color: var(--dark-blue);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--medium-gray);
+            font-size: 14px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+        }
+        
+        .cta .cta-button {
+            background: white;
+            color: var(--dark-blue);
+            padding: 15px 30px;
+            font-size: 18px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            
+            .challenges-grid,
+            .solution-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+            
+            .steps::before {
+                display: none;
+            }
+            
+            .step {
+                margin-bottom: 40px;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Impact<span>Learn</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#challenges">Challenges</a></li>
+                        <li><a href="#solution">Solution</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </nav>
+                <button class="cta-button">Get Started</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Employee Training Platform Tailored for Nonprofits</h1>
+                    <p>Impact Learn combines top training tools into one affordable subscription designed specifically for nonprofit organizations facing unique challenges.</p>
+                    <button class="cta-button">Schedule a Demo</button>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team collaborating on training materials">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section id="challenges" class="challenges">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Challenges Nonprofits Face</h2>
+                <p>Nonprofit organizations struggle with unique obstacles that impact their ability to provide effective employee training.</p>
+            </div>
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <h3>Generic Tools</h3>
+                    <p>Most training solutions are designed for corporate environments and don't align with nonprofit missions and values.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">67%</div>
+                            <div class="stat-label">Report poor fit</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="challenge-card">
+                    <h3>Limited Time</h3>
+                    <p>Nonprofit staff often juggle multiple roles, making dedicated training time a luxury they can't afford.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">42%</div>
+                            <div class="stat-label">Skip training</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="challenge-card">
+                    <h3>Tight Budgets</h3>
+                    <p>Nearly half of all nonprofits lack the necessary funds to invest in proper employee development programs.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">47%</div>
+                            <div class="stat-label">Lack training funds</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="challenge-card">
+                    <h3>High Turnover</h3>
+                    <p>Nonprofits experience significantly higher staff turnover compared to corporate organizations.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">19%</div>
+                            <div class="stat-label">Nonprofit turnover</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">12%</div>
+                            <div class="stat-label">Corporate turnover</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Solution</h2>
+                <p>Impact Learn addresses the unique challenges faced by nonprofits with a tailored approach to employee training.</p>
+            </div>
+            <div class="solution-grid">
+                <div class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Custom learning path visualization">
+                </div>
+                <div class="solution-features">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i>✓</i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Unified Learning Platform</h3>
+                            <p>Combines the best training tools into one affordable subscription designed specifically for nonprofits.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i>✓</i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Tailored For Your Mission</h3>
+                            <p>Courses specifically designed for donor relations, volunteer leadership, and community outreach.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i>✓</i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>AI-Driven Personalization</h3>
+                            <p>Optimizes learning paths based on individual roles, goals, and identified skill gaps.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i>✓</i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Smart Tracking & Reports</h3>
+                            <p>Allows leadership to monitor progress, certifications, and ROI at a glance with intuitive dashboards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Our simple four-step process gets your team trained and engaged quickly.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Combine Top Platforms</h3>
+                    <p>We integrate the best training content and tools into a single, cohesive platform.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Curate Key Features</h3>
+                    <p>Our experts select and customize the most relevant features for your organization.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>AI Personalization</h3>
+                    <p>Our AI creates customized learning paths for each team member based on their role and goals.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Real-time Tracking</h3>
+                    <p>Monitor progress, engagement, and ROI through our comprehensive dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Affordable plans starting at just $8/month per user with no hidden fees.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Essential</h3>
+                    <div class="price">$8<span>/user/month</span></div>
+                    <div class="price-note">Minimum 10 users</div>
+                    <ul class="pricing-features">
+                        <li>Basic course library</li>
+                        <li>Progress tracking</li>
+                        <li>Standard reporting</li>
+                        <li>Email support</li>
+                        <li>Mobile access</li>
+                    </ul>
+                    <button class="cta-button">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Professional</h3>
+                    <div class="price">$12<span>/user/month</span></div>
+                    <div class="price-note">Minimum 15 users</div>
+                    <ul class="pricing-features">
+                        <li>Full course library</li>
+                        <li>AI learning paths</li>
+                        <li>Advanced analytics</li>
+                        <li>Priority support</li>
+                        <li>Custom branding</li>
+                        <li>API access</li>
+                    </ul>
+                    <button class="cta-button">Get Started</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">$18<span>/user/month</span></div>
+                    <div class="price-note">Minimum 25 users</div>
+                    <ul class="pricing-features">
+                        <li>Unlimited courses</li>
+                        <li>Custom course creation</li>
+                        <li>Dedicated AI training</li>
+                        <li>ROI reporting</li>
+                        <li>24/7 phone support</li>
+                        <li>Dedicated account manager</li>
+                    </ul>
+                    <button class="cta-button">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from nonprofit leaders who have transformed their training programs with Impact Learn.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Impact Learn has revolutionized how we train our staff. The platform's focus on nonprofit-specific content has made our training programs significantly more effective. We've seen a 35% increase in employee engagement since implementation."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SJ</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Executive Director, Community Outreach Alliance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The AI-driven personalization has helped us address specific skill gaps in our team. The pricing model is perfect for our budget constraints, and we've reduced our training costs by 42% while improving outcomes."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>Training Manager, Global Hope Foundation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Transform Your Training Program?</h2>
+            <p>Join hundreds of nonprofit organizations that have improved staff retention and performance with Impact Learn.</p>
+            <button class="cta-button">Start Your Free Trial</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Impact Learn</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Updates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Sales</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Impact Learn. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.challenge-card, .feature, .step, .pricing-card, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
